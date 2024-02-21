@@ -1,0 +1,24 @@
+{
+  "name": "emscripten-wasm",
+  "version": "1.0.0",
+  "main": "Emscripten_WASM.ts",
+  "license": "MIT",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "compile": "emcmake cmake -S . -B build && cd build && emmake make",
+    "test": "node result/Emscripten_WASM_test.js",
+    "clean": "pushd build && cmake --build . --target clean && popd && rm -rf build"
+  },
+  "cmake-js": {
+    "runtime": "node",
+    "arch": "arm64"
+  },
+  "dependencies": {
+    "cmake-js": "^7.2.1",
+    "node-cmake": "^2.5.1"
+  },
+  "devDependencies": {
+    "@types/node": "^16.16.0"
+  }
+}
